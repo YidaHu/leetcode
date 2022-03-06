@@ -18,26 +18,26 @@
  */
 public class Solution {
 
-    /**
-     * 1. 暴力破解法
-     * 
-     * @param headA
-     * @param headB
-     * @return
-     */
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        while (headA != null) {
-            ListNode node = headB;
-            while (node != null) {
-                if (headA == node) {
-                    return node;
-                }
-                node = node.next;
-            }
-            headA = headA.next;
-        }
-        return null;
-    }
+    // /**
+    // * 1. 暴力破解法
+    // *
+    // * @param headA
+    // * @param headB
+    // * @return
+    // */
+    // public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    // while (headA != null) {
+    // ListNode node = headB;
+    // while (node != null) {
+    // if (headA == node) {
+    // return node;
+    // }
+    // node = node.next;
+    // }
+    // headA = headA.next;
+    // }
+    // return null;
+    // }
 
     /**
      * 双指针
