@@ -44,9 +44,24 @@ class Solution {
     // }
 
     public boolean isValid(String s) {
+        List<Character> ch = new ArrayList<>();
+        ch.add(']');
+        ch.add('}');
+        ch.add(')');
         char[] chars = s.toCharArray();
+        int n = chars.length;
         int left = 0, right = chars.length - 1;
-
+        while (left != right) {
+            if (chars[left] != chars[right]) {
+                return false;
+            }
+            if (ch.contains(chars[left])) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
 }
 // @lc code=end
