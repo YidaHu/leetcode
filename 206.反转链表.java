@@ -46,11 +46,14 @@ class Solution {
      * @return
      */
     public ListNode reverseList(ListNode head) {
+        // 链表只有一个节点时，返回自身
         if (head == null || head.next == null) {
             return head;
         }
         ListNode last = reverseList(head.next);
+        // 节点指向反转
         head.next.next = head;
+        // 链表结尾指向null
         head.next = null;
         return last;
     }
