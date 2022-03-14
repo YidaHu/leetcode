@@ -1,3 +1,5 @@
+import com.sun.org.apache.xalan.internal.xsltc.runtime.Node;
+
 /*
  * @lc app=leetcode.cn id=116 lang=java
  *
@@ -6,7 +8,7 @@
 
 // @lc code=start
 
-// Definition for a Node.
+/* // Definition for a Node.
 class Node {
     public int val;
     public Node left;
@@ -26,11 +28,29 @@ class Node {
         right = _right;
         next = _next;
     }
-};
+}; */
 
 class Solution {
     public Node connect(Node root) {
+        if (root == null) {
+            return null;
+        }
+        twoNodeConnect(root.left, root.right);
+        return root;
+    }
 
+    public void twoNodeConnect(Node node1, Node node2) {
+        if (node1 == null || node2 == null) {
+            return;
+        }
+        // 前序遍历位置
+        // 将传入的两个节点连接
+        node1.next = node2;
+        // 相同父节点，左右相连
+        twoNodeConnect(node1.left, node1.right);
+        twoNodeConnect(node2.left, node2.right);
+        // 不同父节点，左右相连
+        twoNodeConnect(node1.right, node2.left);
     }
 }
 // @lc code=end
