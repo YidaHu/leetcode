@@ -51,3 +51,16 @@ for (int i = n - 1; i >= 0; i--) {
 
 BFS:
 常用于求无权图的最短路径问题
+
+BST:
+```java
+void BST(TreeNode root, int target) {
+    if (root.val == target) {
+        // todo 找到目标，做点什么
+    }
+    if (root.val < target)
+        BST(root.right, target);
+    if (root.val > target)
+        BST(root.left, target);
+}
+```
