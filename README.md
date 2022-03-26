@@ -64,3 +64,6 @@ void BST(TreeNode root, int target) {
         BST(root.left, target);
 }
 ```
+
+图：
+图的存储方式主要有邻接表和邻接矩阵
