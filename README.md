@@ -68,3 +68,4 @@ void BST(TreeNode root, int target) {
 
 图：
 图的存储方式主要有邻接表和邻接矩阵
+环检测算法，可以分为 DFS 版和 BFS 版
