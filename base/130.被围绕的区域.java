@@ -108,11 +108,13 @@ class Solution {
     }
     int[][] d = new int[][] { { 1, 0 }, { 0, 1 }, { 0, -1 }, { -1, 0 } };
     for (int i = 1; i < m - 1; i++) {
-      for (int j = 1; j < n - 1; j++) if (board[i][j] == 'O') {
-        for (int k = 0; k < 4; k++) {
-          int x = i + d[k][0];
-          int y = j + d[k][1];
-          if (board[x][y] == 'O') uf.union(x * n + y, i * n + j);
+      for (int j = 1; j < n - 1; j++) {
+        if (board[i][j] == 'O') {
+          for (int k = 0; k < 4; k++) {
+            int x = i + d[k][0];
+            int y = j + d[k][1];
+            if (board[x][y] == 'O') uf.union(x * n + y, i * n + j);
+          }
         }
       }
     }

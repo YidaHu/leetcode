@@ -71,5 +71,8 @@ void BST(TreeNode root, int target) {
 环检测算法，可以分为 DFS 版和 BFS 版
 
 图论-动态连通性：
-Union-Find算法，并查集算法
+Union-Find 算法，并查集算法
 场景：编译器判断同一个变量的不同引用，社交网络中的朋友圈计算等等
+
+最小生成树：
+树不包含环，图可以包含环
