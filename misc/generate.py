@@ -34,7 +34,7 @@ titles = sorted(titles.items(), key=lambda x: x[0])
 with open("generate.md", "a+") as f:
     for t in titles:
         title = t[1].replace(".java", "")
-        if t[0] in base_title:
+        if t[0] in editor_title:
             code_link = r"https://github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/{}".format(quote(t[1]))
         else:
             code_link = r"https://github.com/YidaHu/leetcode/blob/master/base/{}".format(quote(t[1]))
