@@ -1,78 +1,107 @@
-前缀和：
-原始数组不被修改的情况下，频繁查询某个区间的累加和
 
-查分数组：
-频繁对原始数组某个区间的元素进行增减
+# LeetCode 刷题笔记
 
-滑动窗口：
-子串问题
+这是一个「日更」的算法仓库，每天至少刷一题，目标是刷穿LC 🤣
 
-二分搜索：
-普通二分搜索，左侧搜索，右侧搜索
-
-快慢指针：
-数组原地修改，O(n)
-
-单调栈：
-解决 Next Great Number 的问题
-
-```
-for (int i = n - 1; i >= 0; i--) {
-    // 如果栈不为空，栈顶数据小于当前数据，推出
-    while (!stack.isEmpty() && temperatures[stack.peek()] <= temperatures[i]) {
-        stack.pop();
-    }
-    // 栈为空时，没有下一个更大元素。否则，栈顶索引到当前索引的距离为值
-    res[i] = stack.isEmpty() ? 0 : (stack.peek() - i);
-    // 保存当前索引
-    stack.push(i);
-}
-```
-
-单调队列：
-解决滑动窗口相关问题
-
-中位数相关：
-可以用两个有序队列。大小堆通常可以一起用来维护中位数。
-
-快速排序就是二叉树的前序遍历，
-归并排序就是二叉树的后序遍历
-
-递归：
-不去管函数的内部细节是如何处理的，我们只看其函数作用以及输入与输出。
-
-将二叉树转化为列表，对于二叉树的题目，无非就以下几种解题思路：
-
-先序遍历（深度优先搜索）
-中序遍历（深度优先搜索）（尤其二叉搜索树）
-后序遍历（深度优先搜索）
-层序遍历（广度优先搜索）（尤其按照层来解决问题的时候）
-序列化与反序列化（结构唯一性问题）
-
-BFS:
-常用于求无权图的最短路径问题
-
-BST:
-
-```java
-void BST(TreeNode root, int target) {
-    if (root.val == target) {
-        // todo 找到目标，做点什么
-    }
-    if (root.val < target)
-        BST(root.right, target);
-    if (root.val > target)
-        BST(root.left, target);
-}
-```
-
-图：
-图的存储方式主要有邻接表和邻接矩阵
-环检测算法，可以分为 DFS 版和 BFS 版
-
-图论-动态连通性：
-Union-Find 算法，并查集算法
-场景：编译器判断同一个变量的不同引用，社交网络中的朋友圈计算等等
-
-最小生成树：
-树不包含环，图可以包含环
+| 题目                                                         | 代码                                                                                                                         | 难度 |
+| ------------------------------------------------------------ |----------------------------------------------------------------------------------------------------------------------------| ---- |
+| [1.两数之和]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C.java) |  |
+| [3.无重复字符的最长子串]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/3.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.java) |  |
+| [7.整数反转]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/7.%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC.java) |  |
+| [9.回文数]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/9.%E5%9B%9E%E6%96%87%E6%95%B0.java) |  |
+| [13.罗马数字转整数]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/13.%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0.java) |  |
+| [19.删除链表的倒数第-n-个结点]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/19.%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC-n-%E4%B8%AA%E7%BB%93%E7%82%B9.java) |  |
+| [20.有效的括号]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/20.%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7.java) |  |
+| [21.合并两个有序链表]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/21.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8.java) |  |
+| [23.合并k个升序链表]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/23.%E5%90%88%E5%B9%B6k%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8.java) |  |
+| [26.删除有序数组中的重复项]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/26.%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9.java) |  |
+| [27.移除元素]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0.java) |  |
+| [46.全排列]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/base/46.%E5%85%A8%E6%8E%92%E5%88%97.java) |  |
+| [76.最小覆盖子串]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/76.%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2.java) |  |
+| [83.删除排序链表中的重复元素]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/83.%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0.java) |  |
+| [92.反转链表-ii]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/92.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8-ii.java) |  |
+| [95.不同的二叉搜索树-ii]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/95.%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-ii.java) |  |
+| [96.不同的二叉搜索树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/96.%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.java) |  |
+| [98.验证二叉搜索树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/98.%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.java) |  |
+| [104.二叉树的最大深度]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/104.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6.java) |  |
+| [105.从前序与中序遍历序列构造二叉树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91.java) |  |
+| [106.从中序与后序遍历序列构造二叉树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/106.%E4%BB%8E%E4%B8%AD%E5%BA%8F%E4%B8%8E%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91.java) |  |
+| [114.二叉树展开为链表]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/114.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8.java) |  |
+| [116.填充每个节点的下一个右侧节点指针]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/116.%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88.java) |  |
+| [124.二叉树中的最大路径和]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/124.%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E5%92%8C.java) |  |
+| [130.被围绕的区域]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/130.%E8%A2%AB%E5%9B%B4%E7%BB%95%E7%9A%84%E5%8C%BA%E5%9F%9F.java) |  |
+| [146.lru-缓存]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/146.lru-%E7%BC%93%E5%AD%98.java) |  |
+| [160.相交链表]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/160.%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8.java) |  |
+| [167.两数之和 II - 输入有序数组]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/base/167.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%20II%20-%20%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84.java) |  |
+| [206.反转链表]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8.java) |  |
+| [207.课程表]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/207.%E8%AF%BE%E7%A8%8B%E8%A1%A8.java) |  |
+| [210.课程表-ii]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/210.%E8%AF%BE%E7%A8%8B%E8%A1%A8-ii.java) |  |
+| [225.用队列实现栈]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/225.%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88.java) |  |
+| [226.翻转二叉树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/226.%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91.java) |  |
+| [230.二叉搜索树中第k小的元素]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/230.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%AC%ACk%E5%B0%8F%E7%9A%84%E5%85%83%E7%B4%A0.java) |  |
+| [232.用栈实现队列]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/232.%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97.java) |  |
+| [239.滑动窗口最大值]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/239.%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%9C%80%E5%A4%A7%E5%80%BC.java) |  |
+| [261.以图判树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/261.%E4%BB%A5%E5%9B%BE%E5%88%A4%E6%A0%91.java) |  |
+| [283.移动零]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/283.%E7%A7%BB%E5%8A%A8%E9%9B%B6.java) |  |
+| [295.数据流的中位数]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/295.%E6%95%B0%E6%8D%AE%E6%B5%81%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0.java) |  |
+| [297.二叉树的序列化与反序列化]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/297.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96.java) |  |
+| [303.区域和检索-数组不可变]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/303.%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%A3%80%E7%B4%A2-%E6%95%B0%E7%BB%84%E4%B8%8D%E5%8F%AF%E5%8F%98.java) |  |
+| [304.二维区域和检索-矩阵不可变]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/304.%E4%BA%8C%E7%BB%B4%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%A3%80%E7%B4%A2-%E7%9F%A9%E9%98%B5%E4%B8%8D%E5%8F%AF%E5%8F%98.java) |  |
+| [307.区域和检索-数组可修改]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/307.%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%A3%80%E7%B4%A2-%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BF%AE%E6%94%B9.java) |  |
+| [310.最小高度树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/310.%E6%9C%80%E5%B0%8F%E9%AB%98%E5%BA%A6%E6%A0%91.java) |  |
+| [316.去除重复字母]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/316.%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D.java) |  |
+| [323. 无向图中连通分量的数目]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/323.%20%E6%97%A0%E5%90%91%E5%9B%BE%E4%B8%AD%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E7%9A%84%E6%95%B0%E7%9B%AE.java) |  |
+| [357.计算各个位数不同的数字个数]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/357.%E8%AE%A1%E7%AE%97%E5%90%84%E4%B8%AA%E4%BD%8D%E6%95%B0%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0.java) |  |
+| [370.区间加法]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/370.%E5%8C%BA%E9%97%B4%E5%8A%A0%E6%B3%95.java) |  |
+| [380.o-1-时间插入、删除和获取随机元素]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/380.o-1-%E6%97%B6%E9%97%B4%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E5%92%8C%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%85%83%E7%B4%A0.java) |  |
+| [385.迷你语法分析器]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/385.%E8%BF%B7%E4%BD%A0%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.java) |  |
+| [396.旋转函数]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/396.%E6%97%8B%E8%BD%AC%E5%87%BD%E6%95%B0.java) |  |
+| [398.随机数索引]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/398.%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%B4%A2%E5%BC%95.java) |  |
+| [417.太平洋大西洋水流问题]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/417.%E5%A4%AA%E5%B9%B3%E6%B4%8B%E5%A4%A7%E8%A5%BF%E6%B4%8B%E6%B0%B4%E6%B5%81%E9%97%AE%E9%A2%98.java) |  |
+| [420.强密码检验器]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/420.%E5%BC%BA%E5%AF%86%E7%A0%81%E6%A3%80%E9%AA%8C%E5%99%A8.java) |  |
+| [427.建立四叉树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/427.%E5%BB%BA%E7%AB%8B%E5%9B%9B%E5%8F%89%E6%A0%91.java) |  |
+| [429.n-叉树的层序遍历]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/429.n-%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86.java) |  |
+| [438.找到字符串中所有字母异位词]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/438.%E6%89%BE%E5%88%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%89%80%E6%9C%89%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D.java) |  |
+| [450.删除二叉搜索树中的节点]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/450.%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9.java) |  |
+| [460.lfu-缓存]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/460.lfu-%E7%BC%93%E5%AD%98.java) |  |
+| [496.下一个更大元素-i]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/496.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0-i.java) |  |
+| [503.下一个更大元素-ii]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/503.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A4%A7%E5%85%83%E7%B4%A0-ii.java) |  |
+| [515.在每个树行中找最大值]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/515.%E5%9C%A8%E6%AF%8F%E4%B8%AA%E6%A0%91%E8%A1%8C%E4%B8%AD%E6%89%BE%E6%9C%80%E5%A4%A7%E5%80%BC.java) |  |
+| [538.把二叉搜索树转换为累加树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/538.%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91.java) |  |
+| [560.和为-k-的子数组]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/560.%E5%92%8C%E4%B8%BA-k-%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84.java) |  |
+| [567.字符串的排列]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/567.%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97.java) |  |
+| [633.平方数之和]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/base/633.%E5%B9%B3%E6%96%B9%E6%95%B0%E4%B9%8B%E5%92%8C.java) |  |
+| [652.寻找重复的子树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/652.%E5%AF%BB%E6%89%BE%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E6%A0%91.java) |  |
+| [654.最大二叉树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/654.%E6%9C%80%E5%A4%A7%E4%BA%8C%E5%8F%89%E6%A0%91.java) |  |
+| [669.修剪二叉搜索树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/669.%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.java) |  |
+| [700.二叉搜索树中的搜索]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/700.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%90%9C%E7%B4%A2.java) |  |
+| [701.二叉搜索树中的插入操作]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/701.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C.java) |  |
+| [704.二分查找]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/704.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.java) |  |
+| [710.黑名单中的随机数]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/710.%E9%BB%91%E5%90%8D%E5%8D%95%E4%B8%AD%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0.java) |  |
+| [739.每日温度]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/739.%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6.java) |  |
+| [743.网络延迟时间]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/743.%E7%BD%91%E7%BB%9C%E5%BB%B6%E8%BF%9F%E6%97%B6%E9%97%B4.java) |  |
+| [744.寻找比目标字母大的最小字母]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/744.%E5%AF%BB%E6%89%BE%E6%AF%94%E7%9B%AE%E6%A0%87%E5%AD%97%E6%AF%8D%E5%A4%A7%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%97%E6%AF%8D.java) |  |
+| [762.二进制表示中质数个计算置位]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/762.%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD%E8%B4%A8%E6%95%B0%E4%B8%AA%E8%AE%A1%E7%AE%97%E7%BD%AE%E4%BD%8D.java) |  |
+| [785.判断二分图（DFS）]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/785.%E5%88%A4%E6%96%AD%E4%BA%8C%E5%88%86%E5%9B%BE%EF%BC%88DFS%EF%BC%89.java) |  |
+| [797.所有可能的路径]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/797.%E6%89%80%E6%9C%89%E5%8F%AF%E8%83%BD%E7%9A%84%E8%B7%AF%E5%BE%84.java) |  |
+| [804.唯一摩尔斯密码词]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/804.%E5%94%AF%E4%B8%80%E6%91%A9%E5%B0%94%E6%96%AF%E5%AF%86%E7%A0%81%E8%AF%8D.java) |  |
+| [806.写字符串需要的行数]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/806.%E5%86%99%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%9C%80%E8%A6%81%E7%9A%84%E8%A1%8C%E6%95%B0.java) |  |
+| [821.字符的最短距离]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/821.%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB.java) |  |
+| [870.优势洗牌]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/870.%E4%BC%98%E5%8A%BF%E6%B4%97%E7%89%8C.java) |  |
+| [876.链表的中间结点]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/876.%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9.java) |  |
+| [883.三维形体投影面积]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/883.%E4%B8%89%E7%BB%B4%E5%BD%A2%E4%BD%93%E6%8A%95%E5%BD%B1%E9%9D%A2%E7%A7%AF.java) |  |
+| [886.可能的二分法]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/886.%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BA%8C%E5%88%86%E6%B3%95.java) |  |
+| [908.最小差值-i]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/908.%E6%9C%80%E5%B0%8F%E5%B7%AE%E5%80%BC-i.java) |  |
+| [921.使括号有效的最少添加]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/921.%E4%BD%BF%E6%8B%AC%E5%8F%B7%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%80%E5%B0%91%E6%B7%BB%E5%8A%A0.java) |  |
+| [954.二倍数对数组]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/954.%E4%BA%8C%E5%80%8D%E6%95%B0%E5%AF%B9%E6%95%B0%E7%BB%84.java) |  |
+| [990.等式方程的可满足性]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/990.%E7%AD%89%E5%BC%8F%E6%96%B9%E7%A8%8B%E7%9A%84%E5%8F%AF%E6%BB%A1%E8%B6%B3%E6%80%A7.java) |  |
+| [1038.从二叉搜索树到更大和树]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/1038.%E4%BB%8E%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%88%B0%E6%9B%B4%E5%A4%A7%E5%92%8C%E6%A0%91.java) |  |
+| [1094.拼车]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/1094.%E6%8B%BC%E8%BD%A6.java) |  |
+| [1109.航班预订统计]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/1109.%E8%88%AA%E7%8F%AD%E9%A2%84%E8%AE%A2%E7%BB%9F%E8%AE%A1.java) |  |
+| [1373.二叉搜索子树的最大键值和]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/1373.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E5%AD%90%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E9%94%AE%E5%80%BC%E5%92%8C.java) |  |
+| [1528.重新排列字符串]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/1528.%E9%87%8D%E6%96%B0%E6%8E%92%E5%88%97%E5%AD%97%E7%AC%A6%E4%B8%B2.java) |  |
+| [1541.平衡括号字符串的最少插入次数]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/1541.%E5%B9%B3%E8%A1%A1%E6%8B%AC%E5%8F%B7%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%B0%91%E6%8F%92%E5%85%A5%E6%AC%A1%E6%95%B0.java) |  |
+| [1584.连接所有点的最小费用]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/1584.%E8%BF%9E%E6%8E%A5%E6%89%80%E6%9C%89%E7%82%B9%E7%9A%84%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8.java) |  |
+| [1669.合并两个链表]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/base/1669.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8.java) |  |
+| [1672.最富有客户的资产总量]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/1672.%E6%9C%80%E5%AF%8C%E6%9C%89%E5%AE%A2%E6%88%B7%E7%9A%84%E8%B5%84%E4%BA%A7%E6%80%BB%E9%87%8F.java) |  |
+| [2319.判断矩阵是否是一个 X 矩阵]() | [LeetCode 题解链接](https%3A//github.com/YidaHu/leetcode/blob/master/base/2319.%E5%88%A4%E6%96%AD%E7%9F%A9%E9%98%B5%E6%98%AF%E5%90%A6%E6%98%AF%E4%B8%80%E4%B8%AA%20X%20%E7%9F%A9%E9%98%B5.java) |  |
