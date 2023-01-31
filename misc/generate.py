@@ -35,8 +35,8 @@ with open("generate.md", "a+") as f:
     for t in titles:
         title = t[1].replace(".java", "")
         if t[0] in base_title:
-            code_link = r"https://github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/{}".format(t[1])
+            code_link = r"https://github.com/YidaHu/leetcode/blob/master/java/leetcode/editor/cn/{}".format(quote(t[1]))
         else:
-            code_link = r"https://github.com/YidaHu/leetcode/blob/master/base/{}".format(t[1])
-        content = "| [{}]() | [LeetCode 题解链接]({}) |  |".format(title, str(quote(code_link)))
+            code_link = r"https://github.com/YidaHu/leetcode/blob/master/base/{}".format(quote(t[1]))
+        content = "| [{}]() | [LeetCode 题解链接]({}) |  |".format(title, code_link)
         f.write(content + "\n")
