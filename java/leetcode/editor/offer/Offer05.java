@@ -46,49 +46,29 @@
  */
 package leetcode.editor.offer;
 
+
 import java.util.ArrayList;
 
+class Offer05 {
 
-
-class offer24 {
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public static void main(String[] args) {
 
     }
 
-    //leetcode submit region begin(Prohibit modification and deletion)
-
-    /**
-     * Definition for singly-linked list.
-     * public class ListNode {
-     *     int val;
-     *     ListNode next;
-     *     ListNode(int x) { val = x; }
-     * }
-     */
     class Solution {
-
-
-        public ListNode reverseList(ListNode head) {
-            ListNode pre = null;
-            ListNode cur = head;
-            while (cur != null) {
-                ListNode next = cur.next;
-                cur.next = pre;
-                pre = cur;
-                cur = next;
+        public String replaceSpace(String s) {
+            char[] chars = s.toCharArray();
+            ArrayList<String> ret = new ArrayList<>();
+            for (int i = 0; i < chars.length; i++) {
+                if (chars[i] == ' ') {
+                    ret.add("%20");
+                } else {
+                    ret.add(String.valueOf(chars[i]));
+                }
             }
-            return pre;
+            return String.join("", ret);
         }
-
     }
 //leetcode submit region end(Prohibit modification and deletion)
 

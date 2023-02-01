@@ -46,29 +46,51 @@
  */
 package leetcode.editor.offer;
 
-
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
-class offer05 {
+class Offer06 {
 
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
 
     public static void main(String[] args) {
 
     }
 
+    //leetcode submit region begin(Prohibit modification and deletion)
+
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     * int val;
+     * ListNode next;
+     * ListNode(int x) { val = x; }
+     * }
+     */
     class Solution {
-        public String replaceSpace(String s) {
-            char[] chars = s.toCharArray();
-            ArrayList<String> ret = new ArrayList<>();
-            for (int i = 0; i < chars.length; i++) {
-                if (chars[i] == ' ') {
-                    ret.add("%20");
-                } else {
-                    ret.add(String.valueOf(chars[i]));
-                }
+
+        ArrayList<Integer> tmp = new ArrayList<>();
+        public int[] reversePrint(ListNode head) {
+            cur(head);
+            int[] ret = new int[tmp.size()];
+            for (int i = 0; i < tmp.size(); i++) {
+                ret[i] = tmp.get(i);
             }
-            return String.join("", ret);
+            return ret;
+        }
+
+        public void cur(ListNode head) {
+            if (head == null) {
+                return;
+            }
+            cur(head.next);
+            tmp.add(head.val);
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
